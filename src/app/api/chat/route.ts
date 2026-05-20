@@ -1,5 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 
+export const runtime = "nodejs";
+
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 const SYSTEM_PROMPT = `あなたはCANVAS REFORM（キャンバスリフォーム株式会社）の公式AIアシスタントです。
