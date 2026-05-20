@@ -35,9 +35,14 @@ export default function ChatBot() {
     });
 
     if (!res.ok || !res.body) {
+      let detail = "";
+      try {
+        const json = await res.json();
+        detail = json.error ? `（${json.error}）` : "";
+      } catch { /* ignore */ }
       setMessages((m) => [
         ...m,
-        { role: "assistant", content: "エラーが発生しました。しばらくしてからお試しください。" },
+        { role: "assistant", content: `エラーが発生しました。しばらくしてからお試しください。${detail}` },
       ]);
       setLoading(false);
       return;

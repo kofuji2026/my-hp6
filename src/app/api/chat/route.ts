@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 
 export const runtime = "nodejs";
+export const maxDuration = 60;
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
@@ -94,37 +95,49 @@ A: 東京都内を中心に、神奈川・埼玉・千葉の一部エリアに�
 - 上記情報にない内容は「詳細は担当者にご確認ください」と案内してください`;
 
 export async function POST(req: Request) {
-  const { messages } = await req.json();
+  try {
+    const { messages } = await req.json();
 
-  const stream = await client.messages.stream({
-    model: "claude-opus-4-7",
-    max_tokens: 1024,
-    system: [
-      {
-        type: "text",
-        text: SYSTEM_PROMPT,
-        cache_control: { type: "ephemeral" },
-      },
-    ],
-    messages,
-  });
+    const stream = await client.messages.stream({
+      model: "claude-opus-4-7",
+      max_tokens: 1024,
+      system: [
+        {
+          type: "text",
+          text: SYSTEM_PROMPT,
+          cache_control: { type: "ephemeral" },
+        },
+      ],
+      messages,
+    });
 
-  const encoder = new TextEncoder();
-  const readable = new ReadableStream({
-    async start(controller) {
-      for await (const event of stream) {
-        if (
-          event.type === "content_block_delta" &&
-          event.delta.type === "text_delta"
-        ) {
-          controller.enqueue(encoder.encode(event.delta.text));
+    const encoder = new TextEncoder();
+    const readable = new ReadableStream({
+      async start(controller) {
+        try {
+          for await (const event of stream) {
+            if (
+              event.type === "content_block_delta" &&
+              event.delta.type === "text_delta"
+            ) {
+              controller.enqueue(encoder.encode(event.delta.text));
+            }
+          }
+        } finally {
+          controller.close();
         }
-      }
-      controller.close();
-    },
-  });
+      },
+    });
 
-  return new Response(readable, {
-    headers: { "Content-Type": "text/plain; charset=utf-8" },
-  });
+    return new Response(readable, {
+      headers: { "Content-Type": "text/plain; charset=utf-8" },
+    });
+  } catch (err) {
+    console.error("[chat/route] error:", err);
+    const message = err instanceof Error ? err.message : "Unknown error";
+    return new Response(JSON.stringify({ error: message }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 }
