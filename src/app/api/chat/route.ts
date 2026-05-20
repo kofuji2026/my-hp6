@@ -98,7 +98,7 @@ export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
 
-    const stream = await client.messages.stream({
+    const response = await client.messages.create({
       model: "claude-opus-4-7",
       max_tokens: 1024,
       system: [
@@ -111,26 +111,13 @@ export async function POST(req: Request) {
       messages,
     });
 
-    const encoder = new TextEncoder();
-    const readable = new ReadableStream({
-      async start(controller) {
-        try {
-          for await (const event of stream) {
-            if (
-              event.type === "content_block_delta" &&
-              event.delta.type === "text_delta"
-            ) {
-              controller.enqueue(encoder.encode(event.delta.text));
-            }
-          }
-        } finally {
-          controller.close();
-        }
-      },
-    });
+    const text = response.content
+      .filter((b) => b.type === "text")
+      .map((b) => (b as { type: "text"; text: string }).text)
+      .join("");
 
-    return new Response(readable, {
-      headers: { "Content-Type": "text/plain; charset=utf-8" },
+    return new Response(JSON.stringify({ text }), {
+      headers: { "Content-Type": "application/json" },
     });
   } catch (err) {
     console.error("[chat/route] error:", err);

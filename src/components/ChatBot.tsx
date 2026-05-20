@@ -34,12 +34,10 @@ export default function ChatBot() {
       body: JSON.stringify({ messages: next }),
     });
 
-    if (!res.ok || !res.body) {
-      let detail = "";
-      try {
-        const json = await res.json();
-        detail = json.error ? `（${json.error}）` : "";
-      } catch { /* ignore */ }
+    const json = await res.json();
+
+    if (!res.ok) {
+      const detail = json.error ? `（${json.error}）` : "";
       setMessages((m) => [
         ...m,
         { role: "assistant", content: `エラーが発生しました。しばらくしてからお試しください。${detail}` },
@@ -48,23 +46,7 @@ export default function ChatBot() {
       return;
     }
 
-    const reader = res.body.getReader();
-    const decoder = new TextDecoder();
-    let reply = "";
-
-    setMessages((m) => [...m, { role: "assistant", content: "" }]);
-
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      reply += decoder.decode(value, { stream: true });
-      setMessages((m) => {
-        const updated = [...m];
-        updated[updated.length - 1] = { role: "assistant", content: reply };
-        return updated;
-      });
-    }
-
+    setMessages((m) => [...m, { role: "assistant", content: json.text ?? "" }]);
     setLoading(false);
   };
 
