@@ -3,7 +3,9 @@ import Anthropic from "@anthropic-ai/sdk";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const client = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY ?? process.env.canvas_reform_chatbot,
+});
 
 const SYSTEM_PROMPT = `あなたはCANVAS REFORM（キャンバスリフォーム株式会社）の公式AIアシスタントです。
 以下の自社情報をもとに、お客様の質問に丁寧・正確に答えてください。
