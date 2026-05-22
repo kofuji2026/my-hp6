@@ -53,7 +53,7 @@ export default function ProcessSection() {
               </div>
               <div className="flex flex-col gap-1 pb-10">
                 <h3 className="text-base font-noto font-bold text-canvas-black">{step.title}</h3>
-                <p className="text-sm text-canvas-black/75 leading-relaxed">{step.desc}</p>
+                <p className="text-sm text-canvas-muted leading-relaxed">{step.desc}</p>
               </div>
             </div>
           ))}

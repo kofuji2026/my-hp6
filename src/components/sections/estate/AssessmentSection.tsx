@@ -31,7 +31,7 @@ export default function AssessmentSection() {
             <h2 className="text-3xl md:text-4xl font-noto font-bold text-white leading-snug">
               不動産の無料査定
             </h2>
-            <p className="text-sm text-white/85 leading-relaxed">
+            <p className="text-sm text-white/60 leading-relaxed">
               「いくらで売れるか知りたい」「まずは相談してみたい」—
               そんな方のために、完全無料の査定サービスをご用意しています。
               秘密厳守で対応いたしますので、お気軽にご連絡ください。
@@ -49,7 +49,7 @@ export default function AssessmentSection() {
                 </span>
                 <div className="flex flex-col gap-1 pt-1">
                   <h3 className="text-sm font-noto font-bold text-white">{step.title}</h3>
-                  <p className="text-xs text-white/75 leading-relaxed">{step.desc}</p>
+                  <p className="text-xs text-white/50 leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}

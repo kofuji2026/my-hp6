@@ -42,7 +42,7 @@ export default function CompanyInfoSection() {
                   <th className="py-4 pr-8 text-left font-noto font-medium text-canvas-black w-36 md:w-48 align-top">
                     {row.label}
                   </th>
-                  <td className="py-4 text-canvas-black/70 leading-relaxed">{row.value}</td>
+                  <td className="py-4 text-canvas-muted leading-relaxed">{row.value}</td>
                 </tr>
               ))}
             </tbody>

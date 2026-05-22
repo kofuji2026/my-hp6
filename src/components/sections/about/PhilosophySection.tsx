@@ -13,7 +13,7 @@ export default function PhilosophySection() {
               title="私たちの哲学"
               subtitle="空間が人の暮らしを変える。私たちはその信念のもと、一棟一棟と真剣に向き合います。"
             />
-            <div className="flex flex-col gap-5 text-sm text-canvas-black/75 leading-relaxed">
+            <div className="flex flex-col gap-5 text-sm text-canvas-muted leading-relaxed">
               <p>
                 CANVAS REFORMは「白いキャンバスに、あなたの暮らしを描く」をコンセプトに、
                 2018年に東京・渋谷で生まれたリノベーション専門の不動産会社です。
