@@ -49,7 +49,7 @@ export default function ServicesSection() {
               <div className="flex flex-col gap-4">
                 <span className="text-3xl">{service.icon}</span>
                 <h3 className="text-lg font-noto font-bold text-canvas-black">{service.title}</h3>
-                <p className="text-sm text-canvas-muted leading-relaxed">{service.desc}</p>
+                <p className="text-sm text-canvas-black/75 leading-relaxed">{service.desc}</p>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {service.tags.map((tag) => (
                     <span

@@ -22,8 +22,8 @@ export default function StaffCard({ staff }: StaffCardProps) {
           {staff.nameEn}
         </p>
         <h3 className="text-lg font-noto font-bold text-canvas-black">{staff.name}</h3>
-        <p className="text-xs text-canvas-muted">{staff.role}</p>
-        <p className="text-sm text-canvas-muted leading-relaxed mt-2 border-l-2 border-canvas-gold pl-3">
+        <p className="text-xs text-canvas-black/60">{staff.role}</p>
+        <p className="text-sm text-canvas-black/70 leading-relaxed mt-2 border-l-2 border-canvas-gold pl-3">
           {staff.message}
         </p>
       </div>

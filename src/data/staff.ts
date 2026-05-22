@@ -10,7 +10,7 @@ export interface StaffMember {
 export const staffMembers: StaffMember[] = [
   {
     id: "s1",
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    photo: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80",
     name: "高橋 拓也",
     nameEn: "Takuya Takahashi",
     role: "代表取締役 / 一級建築士",
@@ -19,7 +19,7 @@ export const staffMembers: StaffMember[] = [
   },
   {
     id: "s2",
-    photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
+    photo: "https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=400&q=80",
     name: "中村 彩香",
     nameEn: "Ayaka Nakamura",
     role: "インテリアデザイナー",
@@ -28,7 +28,7 @@ export const staffMembers: StaffMember[] = [
   },
   {
     id: "s3",
-    photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
+    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
     name: "田中 雄介",
     nameEn: "Yusuke Tanaka",
     role: "不動産コンサルタント",
