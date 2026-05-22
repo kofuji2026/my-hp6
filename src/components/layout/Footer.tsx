@@ -21,7 +21,10 @@ export default function Footer() {
             <p className="text-sm text-white/50 leading-relaxed">
               {SITE.taglineJa}
             </p>
-            <div className="flex gap-4 mt-2">
+            <p className="text-[10px] text-white/20 leading-relaxed">
+              ※ SNSリンクはデモサイトのためダミーです
+            </p>
+            <div className="flex gap-4 mt-1">
               <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"
                 className="text-white/40 hover:text-canvas-gold transition-colors">
                 <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">

@@ -18,11 +18,11 @@ const rows = [
   },
   {
     label: "宅地建物取引業",
-    value: "東京都知事（X）第XXXXX号",
+    value: "東京都知事（X）第XXXXX号　※デモサイトのため架空の番号です",
   },
   {
     label: "建設業許可",
-    value: "東京都知事許可（般-X）第XXXXXX号",
+    value: "東京都知事許可（般-X）第XXXXXX号　※デモサイトのため架空の番号です",
   },
 ];
 

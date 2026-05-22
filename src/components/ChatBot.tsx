@@ -8,6 +8,13 @@ type Message = {
   content: string;
 };
 
+const SUGGESTIONS = [
+  "無料査定について教えてください",
+  "施工事例を見たい",
+  "リフォーム相談をしたい",
+  "来店予約したい",
+];
+
 export default function ChatBot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -19,8 +26,7 @@ export default function ChatBot() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
-  const send = async () => {
-    const text = input.trim();
+  const sendText = async (text: string) => {
     if (!text || loading) return;
 
     const next: Message[] = [...messages, { role: "user", content: text }];
@@ -48,6 +54,10 @@ export default function ChatBot() {
 
     setMessages((m) => [...m, { role: "assistant", content: json.text ?? "" }]);
     setLoading(false);
+  };
+
+  const send = async () => {
+    await sendText(input.trim());
   };
 
   const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -107,9 +117,24 @@ export default function ChatBot() {
             {/* Messages */}
             <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3 text-sm">
               {messages.length === 0 && (
-                <div className="text-canvas-muted text-xs leading-relaxed">
-                  <p className="mb-2">こんにちは。CANVAS REFORMのAIアシスタントです。</p>
-                  <p>リノベーション・不動産に関するご質問はお気軽にどうぞ。</p>
+                <div className="flex flex-col gap-3">
+                  <div className="text-canvas-muted text-xs leading-relaxed">
+                    <p className="mb-1">こんにちは。CANVAS REFORMのAIアシスタントです。</p>
+                    <p>リノベーション・不動産に関するご質問はお気軽にどうぞ。</p>
+                  </div>
+                  <div className="flex flex-col gap-2 mt-1">
+                    <p className="text-[10px] text-canvas-muted/60 font-inter tracking-wider uppercase">よくある質問</p>
+                    {SUGGESTIONS.map((s) => (
+                      <button
+                        key={s}
+                        onClick={() => sendText(s)}
+                        disabled={loading}
+                        className="text-left text-xs px-3 py-2 border border-canvas-border text-canvas-black hover:border-canvas-gold hover:text-canvas-gold transition-colors disabled:opacity-40"
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               )}
               {messages.map((m, i) => (

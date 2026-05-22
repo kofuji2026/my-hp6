@@ -23,10 +23,10 @@ export default function HeroSection() {
           Real estate. Reform. Renovation.
         </p>
         <h1 className="font-playfair font-normal italic text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-none">
-          {SITE.tagline}
+          Find it.<br />Transform it.<br />Love it.
         </h1>
-        <p className="text-sm md:text-base font-noto text-white/70 mb-10 tracking-wide">
-          {SITE.taglineJa}
+        <p className="text-sm md:text-base font-noto text-white/75 mb-10 max-w-xl mx-auto leading-relaxed tracking-wide">
+          一都三県の中古物件購入からリノベーション完成まで<br />すべてワンストップでご相談いただけます。
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button href="/estate" variant="gold">

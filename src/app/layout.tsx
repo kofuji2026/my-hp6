@@ -51,6 +51,9 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} ${noto.variable} h-full`}
     >
       <body className="min-h-full flex flex-col">
+          <div className="bg-canvas-black text-white/60 text-center text-[10px] font-inter tracking-[0.2em] py-1.5 uppercase">
+            Demo Site — ポートフォリオ用デモサイトです。実在の会社ではありません。
+          </div>
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
