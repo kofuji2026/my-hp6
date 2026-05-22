@@ -13,7 +13,8 @@ export default function StaffCard({ staff }: StaffCardProps) {
           src={staff.photo}
           alt={staff.name}
           fill
-          className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
+          className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+          style={{ objectPosition: staff.objectPosition ?? "center top" }}
           sizes="(max-width: 768px) 50vw, 25vw"
         />
       </div>
