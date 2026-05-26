@@ -97,7 +97,7 @@ export default function Footer() {
             © {year} {SITE.nameJa} All Rights Reserved.
           </p>
           <div className="flex gap-6">
-            <Link href="/contact" className="text-xs text-white/30 hover:text-white transition-colors">
+            <Link href="/privacy" className="text-xs text-white/30 hover:text-white transition-colors">
               プライバシーポリシー
             </Link>
           </div>

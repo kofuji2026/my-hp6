@@ -30,7 +30,7 @@ const serviceList = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-24 md:py-32 bg-canvas-surface">
+    <section id="renovation" className="py-24 md:py-32 bg-canvas-surface">
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection className="mb-12">
           <SectionHeading

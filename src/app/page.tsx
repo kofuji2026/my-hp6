@@ -24,7 +24,7 @@ export default function HomePage() {
             不動産の無料査定を承っています
           </h2>
           <p className="text-sm text-white/80 leading-relaxed">
-            売りたい・貸したい・リノベーションしたい。
+            売りたい・貸したい・リノベーションしたい—<br />
             まずはお気軽にご相談ください。最短3日で査定結果をお届けします。
           </p>
           <Button href="/contact" variant="secondary" className="border-white text-white hover:bg-white hover:text-canvas-gold">

@@ -37,7 +37,7 @@ const services = [
     title: "リノベーション事業",
     description:
       "スケルトンから再設計する全面リノベーション。理想の空間を白紙から創り出します。",
-    href: "/reform",
+    href: "/reform#renovation",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
         <polygon points="12 2 2 7 12 12 22 7 12 2" />
@@ -56,7 +56,7 @@ export default function BusinessSection() {
           <SectionHeading
             label="BUSINESS"
             title="私たちの事業"
-            subtitle="不動産売買からリノベーションまで、住まいにまつわるすべてを一貫してサポートします。"
+            subtitle="不動産売買からリノベーションまで、住まいのすべてをワンストップでサポートします。"
           />
         </AnimatedSection>
 

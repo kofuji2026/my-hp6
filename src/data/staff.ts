@@ -41,7 +41,7 @@ export const staffMembers: StaffMember[] = [
     photo: "/staff4.png",
     name: "山本 匠",
     nameEn: "Takumi Yamamoto",
-    role: "現場監督 / プロジェクトマネージャー",
+    role: "現場監督 / PM",
     message:
       "施工から引き渡しまで、スケジュールと品質をしっかり管理して安心をお届けします。",
   },

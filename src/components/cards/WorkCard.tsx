@@ -13,9 +13,10 @@ export default function WorkCard({ work }: WorkCardProps) {
 
   return (
     <div
-      className="group overflow-hidden bg-white border border-canvas-border hover:border-canvas-gold/50 transition-all duration-300"
+      className="group overflow-hidden bg-white border border-canvas-border hover:border-canvas-gold/50 transition-all duration-300 cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={() => setHovered((v) => !v)}
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image

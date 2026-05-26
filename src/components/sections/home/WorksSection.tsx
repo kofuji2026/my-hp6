@@ -14,7 +14,7 @@ export default function WorksSection() {
           <SectionHeading
             label="WORKS"
             title="施工実績"
-            subtitle="ホバーすると Before / After をご覧いただけます。"
+            subtitle="タップ／ホバーで Before → After をご覧いただけます。"
           />
           <Button href="/reform" variant="secondary">
             施工実績一覧
