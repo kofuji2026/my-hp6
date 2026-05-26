@@ -44,8 +44,8 @@ export const works: Work[] = [
     area: 48,
     year: 2023,
     tags: ["間取り変更", "内装", "照明計画"],
-    beforeImage: "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=80",
-    afterImage: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80",
+    beforeImage: "/work4-before.png",
+    afterImage: "/work4-after.png",
     description:
       "ワンルームマンションの間取りを変更し1LDKに。壁を一枚増やすだけで生活クオリティが劇的に向上。照明計画も同時に行い、夜の表情にもこだわりました。",
   },
