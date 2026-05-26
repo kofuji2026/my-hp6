@@ -11,8 +11,7 @@ export interface StaffMember {
 export const staffMembers: StaffMember[] = [
   {
     id: "s1",
-    photo: "/profile.png",
-    objectPosition: "12% center",
+    photo: "/staff1.png",
     name: "高橋 拓也",
     nameEn: "Takuya Takahashi",
     role: "代表取締役 / 一級建築士",
@@ -21,8 +20,7 @@ export const staffMembers: StaffMember[] = [
   },
   {
     id: "s2",
-    photo: "/profile.png",
-    objectPosition: "37% center",
+    photo: "/staff2.png",
     name: "中村 彩香",
     nameEn: "Ayaka Nakamura",
     role: "インテリアデザイナー",
@@ -31,8 +29,7 @@ export const staffMembers: StaffMember[] = [
   },
   {
     id: "s3",
-    photo: "/profile.png",
-    objectPosition: "63% center",
+    photo: "/staff3.png",
     name: "田中 雄介",
     nameEn: "Yusuke Tanaka",
     role: "不動産コンサルタント",
@@ -41,11 +38,10 @@ export const staffMembers: StaffMember[] = [
   },
   {
     id: "s4",
-    photo: "/profile.png",
-    objectPosition: "88% center",
-    name: "山本 美咲",
-    nameEn: "Misaki Yamamoto",
-    role: "プロジェクトマネージャー",
+    photo: "/staff4.png",
+    name: "山本 匠",
+    nameEn: "Takumi Yamamoto",
+    role: "現場監督 / プロジェクトマネージャー",
     message:
       "施工から引き渡しまで、スケジュールと品質をしっかり管理して安心をお届けします。",
   },
