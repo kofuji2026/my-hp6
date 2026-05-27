@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { NAV_ITEMS, SITE } from "@/lib/constants";
 import MobileMenu from "./MobileMenu";
 import { cn } from "@/lib/utils";
@@ -9,6 +10,11 @@ import { cn } from "@/lib/utils";
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  // トップページ以外は常に白背景・黒文字（下層ページはヒーロー画像がないため）
+  const isHome = pathname === "/";
+  const solid = !isHome || scrolled;
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -21,7 +27,7 @@ export default function Header() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-30 transition-all duration-500",
-          scrolled
+          solid
             ? "bg-white/95 backdrop-blur-sm border-b border-canvas-border"
             : "bg-transparent"
         )}
@@ -32,7 +38,7 @@ export default function Header() {
             <span
               className={cn(
                 "font-inter font-bold text-lg tracking-[0.15em] uppercase transition-colors duration-300",
-                scrolled ? "text-canvas-black" : "text-white"
+                solid ? "text-canvas-black" : "text-white"
               )}
             >
               {SITE.name}
@@ -40,7 +46,7 @@ export default function Header() {
             <span
               className={cn(
                 "text-[9px] font-inter tracking-widest transition-colors duration-300",
-                scrolled ? "text-canvas-muted" : "text-white/60"
+                solid ? "text-canvas-muted" : "text-white/60"
               )}
             >
               {SITE.nameJa}
@@ -55,7 +61,7 @@ export default function Header() {
                 href={item.href}
                 className={cn(
                   "text-xs font-noto font-medium tracking-wide transition-colors duration-300 hover:text-canvas-gold",
-                  scrolled ? "text-canvas-black" : "text-white/90"
+                  solid ? "text-canvas-black" : "text-white/90"
                 )}
               >
                 {item.label}
@@ -69,7 +75,7 @@ export default function Header() {
               href={SITE.telHref}
               className={cn(
                 "text-sm font-inter font-medium tracking-wide transition-colors duration-300 hover:text-canvas-gold",
-                scrolled ? "text-canvas-black" : "text-white"
+                solid ? "text-canvas-black" : "text-white"
               )}
             >
               {SITE.tel}
@@ -88,7 +94,7 @@ export default function Header() {
             aria-label="メニューを開く"
             className={cn(
               "lg:hidden p-2 transition-colors",
-              scrolled ? "text-canvas-black" : "text-white"
+              solid ? "text-canvas-black" : "text-white"
             )}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
