@@ -23,7 +23,7 @@ export default function WorksSection() {
 
         <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featured.map((work) => (
-            <WorkCard key={work.id} work={work} />
+            <WorkCard key={work.id} work={work} href={`/works/${work.id}`} />
           ))}
         </AnimatedSection>
       </div>

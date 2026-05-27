@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Badge from "@/components/ui/Badge";
 import type { Property } from "@/types/property";
 
@@ -8,7 +9,10 @@ interface PropertyCardProps {
 
 export default function PropertyCard({ property }: PropertyCardProps) {
   return (
-    <div className="group bg-white border border-canvas-border hover:border-canvas-gold/50 transition-all duration-300 overflow-hidden">
+    <Link
+      href={`/estate/${property.id}`}
+      className="group bg-white border border-canvas-border hover:border-canvas-gold/50 transition-all duration-300 overflow-hidden block"
+    >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={property.image}
@@ -37,7 +41,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             </>
           )}
         </div>
-        <h3 className="text-sm font-noto font-medium text-canvas-black leading-snug line-clamp-2">
+        <h3 className="text-sm font-noto font-medium text-canvas-black leading-snug line-clamp-2 group-hover:text-canvas-gold transition-colors">
           {property.name}
         </h3>
         <p className="text-xl font-inter font-light text-canvas-black">
@@ -51,6 +55,6 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

@@ -64,6 +64,9 @@ export default function Footer() {
                   {item.label}
                 </Link>
               ))}
+              <Link href="/news" className="text-sm text-white/60 hover:text-white transition-colors">
+                ニュース一覧
+              </Link>
             </nav>
           </div>
 

@@ -3,7 +3,27 @@
     "allow": [
       "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --yes)",
       "Bash(npx --version)",
-      "PowerShell(& \"C:\\\\Program Files\\\\nodejs\\\\node.exe\" --version)"
+      "PowerShell(& \"C:\\\\Program Files\\\\nodejs\\\\node.exe\" --version)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\fuji2\\\\OneDrive\\\\Desktop\\\\スキルプラス\\\\Claude Code\\\\my-hp6\" -Force | ForEach-Object { $_.Name })",
+      "mcp__Claude_Preview__preview_start",
+      "Skill(claude-api)",
+      "Skill(claude-api:*)",
+      "Bash(npm install *)",
+      "Bash(node -e \"require\\('@anthropic-ai/sdk'\\)\")",
+      "Bash(node \"C:/Program Files/nodejs/node_modules/npm/bin/npm-cli.js\" install @anthropic-ai/sdk --prefix \"C:/Users/fuji2/OneDrive/Desktop/スキルプラス/Claude Code/my-hp6\")",
+      "Bash(echo \"exit: $?\")",
+      "Bash(cmd /c \"cd /d \\\\\"C:\\\\Users\\\\fuji2\\\\OneDrive\\\\Desktop\\\\スキルプラス\\\\Claude Code\\\\my-hp6\\\\\" && node \\\\\"C:\\\\Program Files\\\\nodejs\\\\node_modules\\\\npm\\\\bin\\\\npm-cli.js\\\\\" install @anthropic-ai/sdk\")",
+      "Bash(cmd /c \"node \\\\\"C:\\\\Program Files\\\\nodejs\\\\node_modules\\\\npm\\\\bin\\\\npm-cli.js\\\\\" install @anthropic-ai/sdk\")",
+      "mcp__mcp-registry__search_mcp_registry",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(find /c/Users/fuji2 -name \"profile.png\" 2>/dev/null | head -10)",
+      "Bash(dir \"C:\\\\Users\\\\fuji2\\\\.claude\\\\projects\\\\\")",
+      "mcp__Claude_in_Chrome__resize_window",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__computer",
+      "mcp__Claude_in_Chrome__browser_batch",
+      "WebSearch",
+      "WebFetch(domain:unsplash.com)"
     ]
   }
 }

@@ -17,7 +17,7 @@ export default function CaseStudySection() {
 
         <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {works.map((work) => (
-            <WorkCard key={work.id} work={work} />
+            <WorkCard key={work.id} work={work} href={`/works/${work.id}`} />
           ))}
         </AnimatedSection>
       </div>

@@ -2,21 +2,23 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { Work } from "@/types/work";
 
 interface WorkCardProps {
   work: Work;
+  href?: string;
 }
 
-export default function WorkCard({ work }: WorkCardProps) {
+export default function WorkCard({ work, href }: WorkCardProps) {
   const [hovered, setHovered] = useState(false);
 
-  return (
+  const inner = (
     <div
       className="group overflow-hidden bg-white border border-canvas-border hover:border-canvas-gold/50 transition-all duration-300 cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={() => setHovered((v) => !v)}
+      onClick={href ? undefined : () => setHovered((v) => !v)}
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
@@ -47,7 +49,7 @@ export default function WorkCard({ work }: WorkCardProps) {
             </span>
           ))}
         </div>
-        <h3 className="text-sm font-noto font-medium text-canvas-black leading-snug">
+        <h3 className="text-sm font-noto font-medium text-canvas-black leading-snug group-hover:text-canvas-gold transition-colors">
           {work.title}
         </h3>
         <p className="text-xs text-canvas-muted line-clamp-2 leading-relaxed">
@@ -61,4 +63,9 @@ export default function WorkCard({ work }: WorkCardProps) {
       </div>
     </div>
   );
+
+  if (href) {
+    return <Link href={href}>{inner}</Link>;
+  }
+  return inner;
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { News } from "@/types/news";
 import { cn } from "@/lib/utils";
 
@@ -10,17 +11,23 @@ const categoryColors: Record<News["category"], string> = {
 
 interface NewsCardProps {
   news: News;
+  href?: string;
 }
 
-export default function NewsCard({ news }: NewsCardProps) {
+export default function NewsCard({ news, href }: NewsCardProps) {
   const date = new Date(news.date).toLocaleDateString("ja-JP", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
 
-  return (
-    <article className="group flex gap-5 py-6 border-b border-canvas-border hover:border-canvas-gold/40 transition-colors cursor-pointer">
+  const inner = (
+    <article className={cn(
+      "group flex gap-5 py-6 border-b border-canvas-border transition-colors",
+      href
+        ? "hover:border-canvas-gold/40 cursor-pointer"
+        : "cursor-default"
+    )}>
       <div className="flex flex-col gap-1 min-w-[110px]">
         <time className="text-xs font-inter text-canvas-muted">{date}</time>
         <span
@@ -33,7 +40,10 @@ export default function NewsCard({ news }: NewsCardProps) {
         </span>
       </div>
       <div className="flex flex-col gap-1">
-        <h3 className="text-sm font-noto font-medium text-canvas-black group-hover:text-canvas-gold transition-colors leading-snug">
+        <h3 className={cn(
+          "text-sm font-noto font-medium text-canvas-black leading-snug transition-colors",
+          href && "group-hover:text-canvas-gold"
+        )}>
           {news.title}
         </h3>
         <p className="text-xs text-canvas-muted leading-relaxed line-clamp-2">
@@ -42,4 +52,9 @@ export default function NewsCard({ news }: NewsCardProps) {
       </div>
     </article>
   );
+
+  if (href) {
+    return <Link href={href} className="block">{inner}</Link>;
+  }
+  return inner;
 }

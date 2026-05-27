@@ -15,14 +15,14 @@ export default function NewsSection() {
             label="JOURNAL"
             title="ニュース・コラム"
           />
-          <Button href="/contact" variant="ghost">
+          <Button href="/news" variant="ghost">
             一覧を見る
           </Button>
         </AnimatedSection>
 
         <AnimatedSection className="flex flex-col">
           {latest.map((news) => (
-            <NewsCard key={news.id} news={news} />
+            <NewsCard key={news.id} news={news} href={`/news/${news.slug}`} />
           ))}
         </AnimatedSection>
       </div>

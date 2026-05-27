@@ -7,4 +7,5 @@ export interface News {
   title: string;
   excerpt: string;
   slug: string;
+  body?: string;
 }
