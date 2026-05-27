@@ -11,7 +11,7 @@ export default function CaseStudySection() {
           <SectionHeading
             label="WORKS"
             title="施工事例"
-            subtitle="実際の施工事例をBefore / Afterでご覧ください。カードにホバーすると変化が見えます。"
+            subtitle="実際の施工事例をBefore / Afterでご覧ください。ホバーで変化が見え、クリックで詳細ページへ遷移します。"
           />
         </AnimatedSection>
 

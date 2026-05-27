@@ -55,18 +55,25 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "text-xs font-noto font-medium tracking-wide transition-colors duration-300 hover:text-canvas-gold",
-                  solid ? "text-canvas-black" : "text-white/90"
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "text-xs font-noto font-medium tracking-wide transition-colors duration-300 hover:text-canvas-gold relative",
+                    solid ? "text-canvas-black" : "text-white/90",
+                    isActive && "text-canvas-gold"
+                  )}
+                >
+                  {item.label}
+                  {isActive && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-px bg-canvas-gold" />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* CTA group */}

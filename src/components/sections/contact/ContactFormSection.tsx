@@ -120,19 +120,24 @@ export default function ContactFormSection() {
                   <span className="text-xs font-inter text-canvas-black">
                     お問い合わせ種別
                   </span>
-                  <select
-                    name="type"
-                    value={form.type}
-                    onChange={handleChange}
-                    className="border border-canvas-border px-4 py-3 text-sm bg-white focus:outline-none focus:border-canvas-gold transition-colors appearance-none cursor-pointer"
-                  >
-                    <option value="">選択してください</option>
-                    {contactTypes.map((t) => (
-                      <option key={t} value={t}>
-                        {t}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="relative">
+                    <select
+                      name="type"
+                      value={form.type}
+                      onChange={handleChange}
+                      className="w-full border border-canvas-border px-4 py-3 text-sm bg-white focus:outline-none focus:border-canvas-gold transition-colors appearance-none cursor-pointer pr-10"
+                    >
+                      <option value="">選択してください</option>
+                      {contactTypes.map((t) => (
+                        <option key={t} value={t}>
+                          {t}
+                        </option>
+                      ))}
+                    </select>
+                    <svg className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-canvas-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
                 </label>
               </div>
 

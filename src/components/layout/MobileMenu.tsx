@@ -53,6 +53,19 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 </Link>
               </motion.div>
             ))}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 + NAV_ITEMS.length * 0.07 }}
+            >
+              <Link
+                href="/news"
+                onClick={onClose}
+                className="text-2xl font-noto text-white/90 hover:text-canvas-gold transition-colors"
+              >
+                ニュース・コラム
+              </Link>
+            </motion.div>
           </nav>
 
           <div className="px-8 pb-12 flex flex-col gap-3">

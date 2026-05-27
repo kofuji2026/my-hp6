@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "プライバシーポリシー | CANVAS REFORM",
@@ -39,22 +40,11 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <>
-      {/* Page header */}
-      <div className="bg-canvas-surface pt-32 pb-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <nav className="text-xs text-canvas-muted mb-6 font-inter">
-            <span>Home</span>
-            <span className="mx-2">/</span>
-            <span>プライバシーポリシー</span>
-          </nav>
-          <p className="text-[10px] font-inter tracking-[0.3em] uppercase text-canvas-gold mb-3">
-            Privacy Policy
-          </p>
-          <h1 className="text-3xl md:text-4xl font-noto font-bold text-canvas-black">
-            プライバシーポリシー
-          </h1>
-        </div>
-      </div>
+      <PageHero
+        label="Privacy Policy"
+        title="プライバシーポリシー"
+        breadcrumb={[{ label: "プライバシーポリシー" }]}
+      />
 
       {/* Content */}
       <div className="py-24 bg-canvas-bg">
