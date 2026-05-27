@@ -23,7 +23,7 @@ export const properties: Property[] = [
     access: "代官山駅 徒歩6分",
     area: 78.3,
     floorPlan: "3LDK",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    image: "/daikanyama-villa.png",
     address: "東京都渋谷区猿楽町XX-XX",
     year: 18,
   },
