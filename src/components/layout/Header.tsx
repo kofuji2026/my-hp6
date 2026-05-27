@@ -26,7 +26,7 @@ export default function Header() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-30 transition-all duration-500",
+          "fixed top-7 left-0 right-0 z-30 transition-all duration-500",
           solid
             ? "bg-white/95 backdrop-blur-sm border-b border-canvas-border"
             : "bg-transparent"

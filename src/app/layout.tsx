@@ -51,14 +51,17 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} ${noto.variable} h-full`}
     >
       <body className="min-h-full flex flex-col">
-          <div className="bg-canvas-black text-white/60 text-center text-[10px] font-inter tracking-[0.2em] py-1.5 uppercase">
-            Demo Site — ポートフォリオ用デモサイトです。実在の会社ではありません。
-          </div>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <ChatBot />
-        </body>
+        {/* デモバナー: z-50 で常に最前面に固定 */}
+        <div className="fixed top-0 left-0 right-0 z-50 bg-canvas-black text-white/60 text-center text-[10px] font-inter tracking-[0.2em] py-1.5 uppercase">
+          Demo Site — ポートフォリオ用デモサイトです。実在の会社ではありません。
+        </div>
+        {/* バナー分の高さを確保するスペーサー（h-7 ≒ 28px） */}
+        <div className="h-7 shrink-0" aria-hidden="true" />
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <ChatBot />
+      </body>
     </html>
   );
 }
