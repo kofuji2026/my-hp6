@@ -75,7 +75,7 @@ export const properties: Property[] = [
     access: "渋谷駅 徒歩15分",
     area: 88.6,
     floorPlan: "—",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1771743079102-da14265de3f8?w=800&q=80",
     address: "東京都渋谷区松濤XX-XX",
     year: 0,
   },
