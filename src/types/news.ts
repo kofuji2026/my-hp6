@@ -8,4 +8,6 @@ export interface News {
   excerpt: string;
   slug: string;
   body?: string;
+  beforeImage?: string;
+  afterImage?: string;
 }

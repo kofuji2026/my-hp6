@@ -30,6 +30,8 @@ export const newsItems: News[] = [
     excerpt:
       "代官山で施工した2LDK（62㎡）のフルリノベーションが完成しました。白い壁と無垢材フローリングを基調にした、静かで美しい住空間をご紹介します。",
     slug: "daikanyama-renovation-2026",
+    beforeImage: "/work1-before.png",
+    afterImage: "/work1-after.png",
     body: `東京都渋谷区猿楽町に位置する築20年のマンション（62㎡ / 2LDK）のフルリノベーションが完成しました。オーナー様のご希望は「白を基調にした、飽きのこないミニマルな空間」。その言葉をもとに、CANVAS REFORMのデザインチームが空間設計から素材選定まで一貫してプロデュースしました。
 
 【設計のポイント】

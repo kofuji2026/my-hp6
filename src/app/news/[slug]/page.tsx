@@ -4,6 +4,7 @@ import Link from "next/link";
 import { newsItems } from "@/data/news";
 import PageHero from "@/components/ui/PageHero";
 import CtaBanner from "@/components/ui/CtaBanner";
+import BeforeAfterImage from "@/components/ui/BeforeAfterImage";
 import { cn } from "@/lib/utils";
 import type { NewsCategory } from "@/types/news";
 
@@ -75,6 +76,21 @@ export default async function NewsDetailPage({
               {news.category}
             </span>
           </div>
+
+          {/* Before / After 画像（施工事例記事のみ） */}
+          {news.beforeImage && news.afterImage && (
+            <div className="mb-12">
+              <BeforeAfterImage
+                beforeSrc={news.beforeImage}
+                afterSrc={news.afterImage}
+                title={news.title}
+                className="max-w-2xl"
+              />
+              <p className="text-[10px] text-canvas-muted font-inter mt-2 text-center">
+                施工前後の様子。タップ / ホバーで切り替えできます。
+              </p>
+            </div>
+          )}
 
           {/* 本文 */}
           <div className="mb-16">

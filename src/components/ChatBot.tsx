@@ -8,6 +8,43 @@ type Message = {
   content: string;
 };
 
+/** アシスタントの返答テキストを読みやすく整形するレンダラー */
+function renderContent(text: string) {
+  const paragraphs = text.split(/\n\n+/);
+  return (
+    <div className="flex flex-col gap-2">
+      {paragraphs.map((para, pi) => {
+        const lines = para.split("\n").filter((l) => l.trim() !== "");
+        // 箇条書き行（・ ● - • で始まる）
+        const isList = lines.length > 0 && lines.every((l) => /^[・●\-•]/.test(l.trim()));
+        if (isList) {
+          return (
+            <ul key={pi} className="flex flex-col gap-0.5">
+              {lines.map((line, li) => (
+                <li key={li} className="flex gap-1">
+                  <span className="shrink-0 text-canvas-gold">・</span>
+                  <span>{line.replace(/^[・●\-•]\s*/, "")}</span>
+                </li>
+              ))}
+            </ul>
+          );
+        }
+        // 通常の段落（行内の \n は <br> に変換）
+        return (
+          <p key={pi}>
+            {lines.map((line, li) => (
+              <span key={li}>
+                {line}
+                {li < lines.length - 1 && <br />}
+              </span>
+            ))}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
+
 const SUGGESTIONS = [
   "無料査定について教えてください",
   "施工事例を見たい",
@@ -146,7 +183,9 @@ export default function ChatBot() {
                         : "bg-canvas-surface text-canvas-black border border-canvas-border"
                     }`}
                   >
-                    {m.content || (
+                    {m.content ? (
+                      m.role === "assistant" ? renderContent(m.content) : m.content
+                    ) : (
                       <span className="inline-flex gap-1">
                         <span className="animate-bounce" style={{ animationDelay: "0ms" }}>·</span>
                         <span className="animate-bounce" style={{ animationDelay: "150ms" }}>·</span>
