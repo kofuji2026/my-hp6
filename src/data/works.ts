@@ -3,15 +3,15 @@ import type { Work } from "@/types/work";
 export const works: Work[] = [
   {
     id: "w1",
-    title: "スケルトンリノベーション — 表参道 2LDK",
-    location: "東京都渋谷区神宮前",
+    title: "スケルトンリノベーション — 代官山 2LDK",
+    location: "東京都渋谷区猿楽町",
     area: 62,
-    year: 2024,
+    year: 2026,
     tags: ["全面リノベ", "スケルトン", "キッチン刷新"],
     beforeImage: "/work1-before.png",
     afterImage: "/work1-after.png",
     description:
-      "築30年のマンションを壁・床・天井すべてスケルトンから再設計。素材は無垢材とコンクリート風左官で統一し、居住者の美意識を空間に落とし込みました。",
+      "築20年のマンションを壁・床・天井すべてスケルトンから再設計。ホワイトオーク無垢材とアイランドキッチンを採用し、白を基調にした飽きのこないミニマルな空間に仕上げました。",
   },
   {
     id: "w2",
