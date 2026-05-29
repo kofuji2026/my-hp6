@@ -48,7 +48,7 @@ export default function BeforeAfterImage({
           {showAfter ? "AFTER" : "BEFORE"}
         </span>
       </div>
-      <div className="absolute bottom-3 right-3">
+      <div className="absolute bottom-3 right-3 hidden sm:block">
         <span className="text-[10px] font-inter px-2 py-1 bg-black/40 text-white/80">
           タップ / ホバーで切替
         </span>

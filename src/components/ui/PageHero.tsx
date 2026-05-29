@@ -11,10 +11,10 @@ export default function PageHero({ label, title, breadcrumb }: PageHeroProps) {
     <section className="pt-32 pb-16 bg-canvas-surface border-b border-canvas-border">
       <div className="max-w-7xl mx-auto px-6">
         {breadcrumb && (
-          <nav className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-canvas-muted font-inter mb-6">
-            <Link href="/" className="hover:text-canvas-gold transition-colors">Home</Link>
+          <nav className="flex flex-nowrap overflow-x-auto items-center gap-x-2 text-xs text-canvas-muted font-inter mb-6 scrollbar-none">
+            <Link href="/" className="hover:text-canvas-gold transition-colors whitespace-nowrap">Home</Link>
             {breadcrumb.map((crumb, i) => (
-              <span key={i} className="flex items-center gap-2">
+              <span key={i} className="flex items-center gap-2 whitespace-nowrap">
                 <span>/</span>
                 {crumb.href ? (
                   <Link href={crumb.href} className="hover:text-canvas-gold transition-colors">

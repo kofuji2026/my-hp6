@@ -41,3 +41,12 @@ body {
   background: #B8965A;
   border-radius: 3px;
 }
+
+/* パンくずなど横スクロール要素のスクロールバー非表示 */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
