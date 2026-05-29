@@ -1,12 +1,68 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 type Message = {
   role: "user" | "assistant";
   content: string;
 };
+
+/** [text](url) 形式のインラインリンクをReactノードに変換 */
+function parseInlineLinks(text: string): React.ReactNode[] {
+  const pattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const result: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      result.push(text.slice(lastIndex, match.index));
+    }
+    const [, label, url] = match;
+    if (url.startsWith("tel:")) {
+      result.push(
+        <a
+          key={match.index}
+          href={url}
+          className="text-canvas-gold underline underline-offset-2 hover:text-canvas-gold-lt transition-colors"
+        >
+          {label}
+        </a>
+      );
+    } else if (url.startsWith("/")) {
+      result.push(
+        <Link
+          key={match.index}
+          href={url}
+          className="text-canvas-gold underline underline-offset-2 hover:text-canvas-gold-lt transition-colors"
+        >
+          {label}
+        </Link>
+      );
+    } else {
+      result.push(
+        <a
+          key={match.index}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-canvas-gold underline underline-offset-2 hover:text-canvas-gold-lt transition-colors"
+        >
+          {label}
+        </a>
+      );
+    }
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    result.push(text.slice(lastIndex));
+  }
+
+  return result;
+}
 
 /** アシスタントの返答テキストを読みやすく整形するレンダラー */
 function renderContent(text: string) {
@@ -23,7 +79,7 @@ function renderContent(text: string) {
               {lines.map((line, li) => (
                 <li key={li} className="flex gap-1">
                   <span className="shrink-0 text-canvas-gold">・</span>
-                  <span>{line.replace(/^[・●\-•]\s*/, "")}</span>
+                  <span>{parseInlineLinks(line.replace(/^[・●\-•]\s*/, ""))}</span>
                 </li>
               ))}
             </ul>
@@ -34,7 +90,7 @@ function renderContent(text: string) {
           <p key={pi}>
             {lines.map((line, li) => (
               <span key={li}>
-                {line}
+                {parseInlineLinks(line)}
                 {li < lines.length - 1 && <br />}
               </span>
             ))}
