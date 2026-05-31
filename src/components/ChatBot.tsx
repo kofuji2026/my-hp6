@@ -195,34 +195,34 @@ export default function ChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.97 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-50 w-[340px] sm:w-[380px] bg-white border border-canvas-border shadow-xl flex flex-col"
-            style={{ maxHeight: "min(520px, calc(100vh - 120px))" }}
+            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] bg-white border border-canvas-border shadow-xl flex flex-col"
+            style={{ maxHeight: "min(560px, calc(100vh - 120px))" }}
           >
             {/* Header */}
             <div className="bg-canvas-black px-5 py-4 flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-canvas-gold" />
               <div>
-                <p className="text-xs font-inter text-white tracking-[0.15em] uppercase">AI Assistant</p>
-                <p className="text-[10px] text-white/50 mt-0.5">CANVAS REFORM</p>
+                <p className="text-sm font-inter text-white tracking-[0.15em] uppercase">AI Assistant</p>
+                <p className="text-xs text-white/50 mt-0.5">CANVAS REFORM</p>
               </div>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3 text-sm">
+            <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3">
               {messages.length === 0 && (
                 <div className="flex flex-col gap-3">
-                  <div className="text-canvas-muted text-xs leading-relaxed">
+                  <div className="text-canvas-muted text-sm leading-relaxed">
                     <p className="mb-1">こんにちは。CANVAS REFORMのAIアシスタントです。</p>
                     <p>リノベーション・不動産に関するご質問はお気軽にどうぞ。</p>
                   </div>
                   <div className="flex flex-col gap-2 mt-1">
-                    <p className="text-[10px] text-canvas-muted/60 font-inter tracking-wider uppercase">よくある質問</p>
+                    <p className="text-xs text-canvas-muted/60 font-inter tracking-wider uppercase">よくある質問</p>
                     {SUGGESTIONS.map((s) => (
                       <button
                         key={s}
                         onClick={() => sendText(s)}
                         disabled={loading}
-                        className="text-left text-xs px-3 py-2 border border-canvas-border text-canvas-black hover:border-canvas-gold hover:text-canvas-gold transition-colors disabled:opacity-40"
+                        className="text-left text-sm px-3 py-2.5 border border-canvas-border text-canvas-black hover:border-canvas-gold hover:text-canvas-gold transition-colors disabled:opacity-40"
                       >
                         {s}
                       </button>
@@ -233,7 +233,7 @@ export default function ChatBot() {
               {messages.map((m, i) => (
                 <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div
-                    className={`max-w-[80%] px-3 py-2 text-xs leading-relaxed ${
+                    className={`max-w-[85%] px-4 py-2.5 text-sm leading-relaxed ${
                       m.role === "user"
                         ? "bg-canvas-gold text-white"
                         : "bg-canvas-surface text-canvas-black border border-canvas-border"
@@ -242,7 +242,7 @@ export default function ChatBot() {
                     {m.content ? (
                       m.role === "assistant" ? renderContent(m.content) : m.content
                     ) : (
-                      <span className="inline-flex gap-1">
+                      <span className="inline-flex gap-1 text-base">
                         <span className="animate-bounce" style={{ animationDelay: "0ms" }}>·</span>
                         <span className="animate-bounce" style={{ animationDelay: "150ms" }}>·</span>
                         <span className="animate-bounce" style={{ animationDelay: "300ms" }}>·</span>
@@ -255,7 +255,7 @@ export default function ChatBot() {
             </div>
 
             {/* Input */}
-            <div className="border-t border-canvas-border px-3 py-3 flex gap-2">
+            <div className="border-t border-canvas-border px-3 py-3 flex gap-2 items-center">
               <input
                 type="text"
                 value={input}
@@ -263,14 +263,14 @@ export default function ChatBot() {
                 onKeyDown={handleKey}
                 placeholder="メッセージを入力…"
                 disabled={loading}
-                className="flex-1 text-xs px-3 py-2 border border-canvas-border bg-canvas-bg focus:outline-none focus:border-canvas-gold transition-colors placeholder:text-canvas-muted/60 disabled:opacity-50"
+                className="flex-1 text-sm px-4 py-3 border border-canvas-border bg-canvas-bg focus:outline-none focus:border-canvas-gold transition-colors placeholder:text-canvas-muted/60 disabled:opacity-50"
               />
               <button
                 onClick={send}
                 disabled={loading || !input.trim()}
-                className="w-9 h-9 bg-canvas-gold text-white flex items-center justify-center hover:bg-canvas-gold-lt transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0"
+                className="w-11 h-11 bg-canvas-gold text-white flex items-center justify-center hover:bg-canvas-gold-lt transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
