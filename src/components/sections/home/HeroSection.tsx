@@ -22,8 +22,9 @@ export default function HeroSection() {
         <p className="text-[10px] md:text-xs font-inter tracking-[0.4em] uppercase text-canvas-gold mb-6">
           Real estate. Reform. Renovation.
         </p>
-        <h1 className="font-playfair font-normal italic text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-none">
-          Find it.<br />Transform it.<br />Love it.
+        <h1 className="font-noto font-light text-[2rem] md:text-5xl lg:text-6xl text-white mb-6 leading-snug tracking-[0.06em]">
+          住まい探しから、<br />
+          理想の暮らしづくりまで。
         </h1>
         <p className="text-sm md:text-base font-noto text-white/75 mb-10 max-w-xl mx-auto leading-relaxed tracking-wide">
           一都三県の中古物件購入からリノベーション完成まで<br />すべてワンストップでご相談いただけます。

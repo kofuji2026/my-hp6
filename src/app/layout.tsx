@@ -21,7 +21,7 @@ const playfair = Playfair_Display({
 const noto = Noto_Sans_JP({
   variable: "--font-noto-var",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["300", "400", "500", "700"],
   display: "swap",
 });
 
