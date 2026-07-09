@@ -12,6 +12,7 @@
   --font-inter: var(--font-inter-var), sans-serif;
   --font-playfair: var(--font-playfair-var), serif;
   --font-noto: var(--font-noto-var), sans-serif;
+  --font-shippori: var(--font-shippori-var), serif;
 }
 
 html {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Noto_Sans_JP } from "next/font/google";
+import { Inter, Playfair_Display, Noto_Sans_JP, Shippori_Mincho } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -22,6 +22,13 @@ const noto = Noto_Sans_JP({
   variable: "--font-noto-var",
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
+  display: "swap",
+});
+
+const shippori = Shippori_Mincho({
+  variable: "--font-shippori-var",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -48,7 +55,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${inter.variable} ${playfair.variable} ${noto.variable} h-full`}
+      className={`${inter.variable} ${playfair.variable} ${noto.variable} ${shippori.variable} h-full`}
     >
       <body className="min-h-full flex flex-col">
         {/* デモバナー: z-50 で常に最前面に固定 */}
